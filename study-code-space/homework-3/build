@@ -1,0 +1,3 @@
+#!/bin/bash
+g++ $1.cpp -o BUILD/$1;
+BUILD/./$1
