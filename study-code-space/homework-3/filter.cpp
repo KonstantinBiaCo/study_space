@@ -1,36 +1,24 @@
 #include <iostream>
 #include <fstream> 
 #include <cstdlib>
+#include <string>
 using namespace std;
 int main()
 {
-    
-    char nums[11] = {'0','1','2','3','4','5','6','7','8','9'};
-    //SetConsoleCP(1251);
-    //SetConsoleOutputCP(1251);
-    char new_string[255];
-    char buff[255];
-    int pointer = 0;
+	//setlocale(LC_ALL, "Russian");
+    char nums[11] = {'0','1','2','3','4','5','6','7','8','9',' '};
+    string s;
+    int len;
     ifstream fin("input.txt");
-	while(true)
+	while(!fin.eof())
 	{
-		if (fin.eof()) break;
-		fin.getline(buff, 255);
-                pointer = 0;
-        for(int i = 0; i < 255; i++)
-        {
-            for(int j = 0; j < 10; j++)
-            {
-                if (buff[i] == nums[j]) 
-                {
-                    new_string[pointer] = nums[j];
-                    pointer++;
-                }
-            }
-            if (buff[i] == '\n') continue;
-        }
-	    cout << new_string << endl;
-        for(int i = 0; i < 255; i++)new_string[i] = '\0';  
+		getline(fin,s);
+		len = s.length();
+		for (int ch = 0; ch < len; ch++)
+		{
+			for (int i = 0; i < 11; i++) if (nums[i] == s[ch]) cout << s[ch];	
+		}
+		cout << '\n';
 	}
 	return 0;
 }

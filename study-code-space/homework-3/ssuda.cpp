@@ -8,18 +8,21 @@ float func(float S, float n, float r)
 }
 int main()
 {
-    float S, m, n, r, res;
+    float S, m, n;
     cin >> S;
     cin >> n;
     cin >> m;
-    for (float p = 0; p > -1; p+=0.1)
-    {   
-        res = func(S, n, p/100);
-        if (res > m)
-        {
-            cout << p << endl;
-            break;
-        } 
-    }
+    if (S < 0 || m < 0 || n < 0) cout << "error\n";
+    else
+    {
+    	for (double p = 0; p > -1; p+=0.0001)
+    	{   
+        	if (func(S, n, p/100) > m)
+        	{
+            	cout << p - 0.0001  << endl;
+            	break;
+        	} 
+    	}	
+	}
     return 0;
 }

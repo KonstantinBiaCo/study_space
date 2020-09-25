@@ -4,14 +4,12 @@
 using namespace std;
 int main()
 {
-    //SetConsoleCP(1251);
-    //SetConsoleOutputCP(1251);
-	char buff[255];
+    setlocale(LC_ALL, "Russian");
+	string buff;
     ifstream fin("input.txt");
-	while(true)
+	while(!fin.eof())
 	{
-		if (fin.eof()) break;
-		fin.getline(buff, 255);	
+		getline(fin, buff);	
 	    cout << buff << endl;
 	}
 	return 0;
