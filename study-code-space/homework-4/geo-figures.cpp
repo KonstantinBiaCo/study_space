@@ -69,7 +69,7 @@ void quiz()
             cout << area_triangle(base, h, 0, 0, 0) << "\n";
         }
     } 
-    else cout << "quiting...";
+    else cout << "quiting...\n";
 }
 int main()
 {
