@@ -17,6 +17,7 @@ int conv(char num)
     }
     return 0;
 }
+
 int main()
 {
     string s;
