@@ -73,7 +73,7 @@ void quiz()
                 
             default:
             cout << "quiting...\n";
-            break
+            break;
         }
         break;
         
