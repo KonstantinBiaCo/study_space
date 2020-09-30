@@ -40,36 +40,47 @@ void quiz()
     float a, b, h, A, R, base;
     cout << "rectangle/circle/triangle\n[1/2/3] ";
     cin >> choice;
-    if (choice == 1)
+    switch(choice)
     {
+        case 1:
         cout << "enter \'a\' and \'b\'\n";
         cin >> a >> b;
-        cout << area_rectangle(a,b) << "\n";
-    } 
-    else if (choice == 2)
-    {
+        cout << area_rectangle(a,b) << "\n";    
+        break;
+            
+        case 2:
         cout << "enter \'R\'\n";
         cin >> R;
-        cout << area_circle(R) << "\n";
-    }
-    else if (choice == 3)
-    {
+        cout << area_circle(R) << "\n";    
+        break;
+            
+        case 3:
         cout << "select an option: base * h/2 or (ab*sinA)/2\n[0/1] ";
         cin >> option;
-        if (option)
+        switch(option)
         {
+            case 1:
             cout << "enter \'a\', \'b\', \'A\'\n";
             cin >> a >> b >> A;
-            cout << area_triangle(0, 0, a, b, A, option) << "\n";
-        }
-        else 
-        {
+            cout << area_triangle(0, 0, a, b, A, option) << "\n";    
+            break;
+                
+            case 0:
             cout << "enter \'base\', \'h\'\n";
             cin >> base >> h;
             cout << area_triangle(base, h, 0, 0, 0) << "\n";
+            break;
+                
+            default:
+            cout << "quiting...\n";
+            break
         }
-    } 
-    else cout << "quiting...\n";
+        break;
+        
+        default:
+        cout << "quiting...\n";    
+        break;
+    }
 }
 int main()
 {
