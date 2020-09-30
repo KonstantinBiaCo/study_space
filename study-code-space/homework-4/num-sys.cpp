@@ -74,6 +74,5 @@ int main()
     //cout << frac_old << "\n";
     cout << get_full_10(full_old, 16) << "\n";
     cout << get_frac_10(frac_old, 16) << "\n";
-    //cout << pow(16, -2) << "\n";
     return 0;
 }
