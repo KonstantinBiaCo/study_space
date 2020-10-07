@@ -33,7 +33,7 @@ int main()
                 last = conv(s[i]);
                 counter = 1;
             }
-            if (counter == 3)
+            if (counter == 4)
             {
             error = 1;
             cout << "error\n";
