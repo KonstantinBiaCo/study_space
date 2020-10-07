@@ -5,37 +5,25 @@
 #include <cmath>
 #define DIG "0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZ"
 using namespace std;
-int get_coef(char c, int index = 0)
-{
-    for(int i = 0; i < 37; i++)
-    {
-        if(c == DIG[i]) 
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
-double get_frac_10(string num, int d)
+double get_frac_10(string num, int d, string ref = DIG)
 {
     int k = 0;
     float s_frac = 0;
     for(int i = 0; i < num.length(); i++)
     {
         k = -(1+i);
-        s_frac += get_coef(num[i]) * pow(d, k);
+        s_frac += ref.find(num[i], 0) * pow(d, k);
     }
     return s_frac;
 }
 
-int get_full_10(string num, int d)
+int get_full_10(string num, int d, string ref = DIG)
 {
     int k = 0;
     int s_full = 0;
     for(int i = num.length() - 1; i != -1; i--)
     {
-        s_full+= get_coef(num[i]) * pow(d, k);
+        s_full+= ref.find(num[i], 0) * pow(d, k);
         k++;
     }
     return s_full;
@@ -86,6 +74,7 @@ string frac_new_base(double frac, int b, int acc)
         {
             if (b%2 == 0 && b/2 <= n_last) new_s[acc-1] = DIG[n+1];
             else if (b%2 != 0 && (b+1)/2 <= n_last) new_s[acc-1] = DIG[n+1];
+            cout << n_last << "\n";
         }
         else
         {
