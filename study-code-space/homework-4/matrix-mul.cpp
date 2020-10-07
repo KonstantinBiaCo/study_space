@@ -4,6 +4,7 @@
 using namespace std;
 int main()
 {
+    
     //Таблица А
 	int an, am, bn, bm, cn, cm;
     cout << "Введите размерность таблицы A\n";
@@ -20,6 +21,11 @@ int main()
     //Таблица В
     cout << "Введите размерность таблицы B\n";
     cin >> bn >> bm;
+    if(am != bn)
+    {
+        cout << "Ошибка размерностей A n*m и B k*c т.е\nm != k\n";
+        return 0;
+    } 
     int *BN = new int(bn);
 	int *BM = new int(bm);
 	double B[*BN][*BM];
