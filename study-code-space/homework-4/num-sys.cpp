@@ -107,21 +107,11 @@ int main()
         else if(num[i] == '-') sign=1;
         else full_old.resize(i+1, num[i]);
     }
-
-    //cout << full_old << "\n";
-    //cout << frac_old << "\n";
     full_10 = get_full_10(full_old, old_base);
     full_new = full_new_base(full_10, new_base);
     frac_10 = get_frac_10(frac_old, old_base);
     acc = accuracy(frac_10);
     frac_new = frac_new_base(frac_10, new_base, acc);
-    /*
-    cout << full_10 << "\n";
-    cout << full_new << "\n";
-    cout << frac_10 << "\n";
-    cout << acc << "\n";
-    cout << frac_new << "\n";
-    */
     if (full_10 == 0) full_new = "0";
     if (frac_10 == 0) frac_new = "0";
     if(sign) cout << '-' + full_new + '.' + frac_new << "\n";
