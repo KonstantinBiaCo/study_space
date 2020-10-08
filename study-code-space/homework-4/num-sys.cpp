@@ -65,22 +65,24 @@ string frac_new_base(double frac, int b, int acc)
 {   
     string new_s;
     int n;
-    int n_last;
-    for(int i = 0; i < acc+1; i++)
+    double n_last;
+    double d;
+    for(int i = 0; i < acc; i++)
     {
         frac = frac*b;
-        n_last = int(frac);
+        d = modf(frac, &n_last);
+        n_last = int(n_last);
         if (i == acc)
         {
             if (b%2 == 0 && b/2 <= n_last) new_s[acc-1] = DIG[n+1];
             else if (b%2 != 0 && (b+1)/2 <= n_last) new_s[acc-1] = DIG[n+1];
-            cout << n_last << "\n";
         }
         else
         {
-            new_s+=DIG[n_last];
-            frac = frac - int(frac);
-            n = n_last; 
+            new_s+=DIG[int(n_last)];
+            frac = d;
+            if(frac == 0.0) break;
+            n = int(n_last); 
         }
     }
     return new_s;
@@ -107,14 +109,18 @@ int main()
         else if(num[i] == '-') sign=1;
         else full_old.resize(i+1, num[i]);
     }
-    full_10 = get_full_10(full_old, old_base);
-    full_new = full_new_base(full_10, new_base);
-    frac_10 = get_frac_10(frac_old, old_base);
-    acc = accuracy(frac_10);
-    frac_new = frac_new_base(frac_10, new_base, acc);
-    if (full_10 == 0) full_new = "0";
-    if (frac_10 == 0) frac_new = "0";
-    if(sign) cout << '-' + full_new + '.' + frac_new << "\n";
-    else cout << full_new + '.' + frac_new << "\n";
+    if (old_base == new_base) cout << num << "\n";
+    else
+    {
+        full_10 = get_full_10(full_old, old_base);
+        full_new = full_new_base(full_10, new_base);
+        frac_10 = get_frac_10(frac_old, old_base);
+        acc = accuracy(frac_10);
+        frac_new = '.' + frac_new_base(frac_10, new_base, acc);
+        if (full_10 == 0) full_new = "0";
+        if (frac_10 == 0) frac_new = " ";
+        if(sign) cout << '-' + full_new  + frac_new << "\n";
+        else cout << full_new  + frac_new << "\n";
+    } 
     return 0;
 }
