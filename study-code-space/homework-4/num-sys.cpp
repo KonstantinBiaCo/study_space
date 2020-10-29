@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <cmath>
+#include <sstream>
 #define DIG "0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZ"
 using namespace std;
 double get_frac_10(string num, int d, string ref = DIG)
@@ -31,16 +32,14 @@ int get_full_10(string num, int d, string ref = DIG)
 
 int accuracy(double frac)
 {
-    int l = 0;
+    if (frac == 0.0) return 0;
+    ostringstream ss;
+    ss << frac;
+    string num(ss.str());
+    num = num.erase(0,2);
+    int l = num.length();
     int L;
-    double num = frac;
-    while (num != 0)
-    {
-        num *= 10;
-        l+=1;
-        num -= int(num);
-    }
-    L = -(log((pow(0.1, l)*((int(frac*pow(10,l)))%10))/2)/log(10));
+    L = -(log((pow(0.1, l)*(int)num[l - 1])/2)/log(10));
     return L;
 }
 string full_new_base(int num, int b)
