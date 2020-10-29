@@ -23,6 +23,8 @@ int main()
         getline(fin, input);
         sum += atof(input.c_str());
     }
+    
     cout << sum << "\n";
+    
     return 0;
 }
