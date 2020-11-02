@@ -9,7 +9,7 @@ double func(double S, double n, double r)
 }
 int main()
 {
-    double S, m, n, last = 0, step = 0.1; 
+    double S, m, n, last = 0, step = 1; 
     cin >> S >> n >> m;
     if (S < 0 || m < 0 || n < 0) cout << "error\n";
     else
