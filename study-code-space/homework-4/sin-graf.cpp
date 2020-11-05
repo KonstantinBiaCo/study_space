@@ -17,6 +17,5 @@ int main(void)
         MoveToEx( hDC, 10*x+100, -10*sin(x)+85, NULL );//10 - scale
         LineTo( hDC, 10*x+100, -10*sin(x)+85 );
     }
-    system("pause");
     return 0;
 }

@@ -80,7 +80,7 @@ string frac_new_base(double frac, int b, int acc)
         {
             new_s+=DIG[int(n_last)];
             frac = d;
-            if(frac == 0.0) break;
+            //if(frac == 0.0) break;
             n = int(n_last); 
         }
     }
