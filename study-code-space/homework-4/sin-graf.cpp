@@ -1,21 +1,39 @@
+#include <iostream>
 #include <windows.h>
-#include <stdlib.h>
-#include <math.h>
- 
-int main(void)
+#include <cstdlib>
+#include <time.h>
+#include <cmath>
+using namespace std;
+void SIN(HDC dc)
 {
-    float x;
-    HDC hDC = GetDC(GetConsoleWindow());
-    HPEN Pen = CreatePen( PS_SOLID, 2, RGB(255, 255, 255));
-    SelectObject( hDC, Pen );
-    MoveToEx( hDC, 0, 85, NULL );
-    LineTo( hDC, 200, 85 );
-    MoveToEx( hDC, 100, 0, NULL );
-    LineTo( hDC, 100, 170 );
-    for (x = -8.0f; x <= 8.0f; x += 0.01f ) // O(100,85) - center
-    {
-        MoveToEx( hDC, 10*x+100, -10*sin(x)+85, NULL );//10 - scale
-        LineTo( hDC, 10*x+100, -10*sin(x)+85 );
-    }
+	
+	double x,y;
+	int freq = 1;
+	int amp = 1;
+	for (x = 0; x < 60; x+=0.001)
+	{
+		y = sin(x*5);
+		SetPixel(dc, x*freq*160, y*amp*70 + 325, RGB(0,255,0));
+	}
+}
+LRESULT WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	if(message == WM_DESTROY)PostQuitMessage(0);
+	return DefWindowProcA(hwnd, message, wparam, lparam);
+}
+int main()
+{
+    WNDCLASSA w;
+    memset(&w, 0, sizeof(WNDCLASSA));
+    w.lpszClassName = "win";
+    w.lpfnWndProc = WndProc;
+    RegisterClassA(&w);
+    HWND hwnd;
+    hwnd = CreateWindow("win", "sin", WS_OVERLAPPEDWINDOW, 50, 50, 1200, 650, NULL, NULL, NULL, NULL);
+    HDC dc = GetDC(hwnd);
+    ShowWindow(hwnd, SW_SHOWNORMAL);
+    SIN(dc);
+    MSG msg;
+    while (GetMessage(&msg, NULL, 0, 0)) DispatchMessage(&msg);
     return 0;
 }
