@@ -5,89 +5,59 @@ using namespace std;
 int main()
 {
     int an, am, bn, bm, cn, cm;
-    //char in;
-    //cout << "Использовать пресет? Y/n\n";
-    //cin >> in;
-    //f((in == 'Y')||(in == 'y'))
-    //{
-        //int A[3][4] = {5, 2, 0, 10, 3, 5, 2, 5, 20, 0, 0, 0};
-        //double B[4][2] = {1.20, 0.50, 2.80, 0.40, 5, 1, 2, 1.50};
-        //an = 3;
-        //am = 4;
-        //bn = 4;
-        //bm = 2;
-        //Таблица С
-	    //cn = an;
-        //cm = bm;
-        //int *CN = new int(cn);
-        //int *CM = new int(cm);
-        //double C[*CN][*CM];
-        //cout << "Таблица С" << "\n";
-        //cout << "Размерность " << cn << "x" << cm << "\n";
-        //for(int i = 0; i < cn; i++)
-        //{
-            //for(int j = 0; j < cm; j++)
-            //{
-                //for(int k = 0; k < am; k++)C[i][j]+=A[i][k]*B[k][j];
-                //cout << C[i][j] << " ";
-            //}
-            //cout << "\n";
-        //}
-    
-        //cout << "--------------------\n";
-    //}
-    //else
-    //{
-        //Таблица А
-        cout << "Введите размерность таблицы A\n";
-	    cin >> an >> am;
-	    int *AN = new int(an);
-	    int *AM = new int(am);
-	    int A[*AN][*AM];
-        cout << "Вводите таблицу A\n";
-        for (int i = 0; i < an; i++)
+    int A[3][4] = {5, 2, 0, 10, 3, 5, 2, 5, 20, 0, 0, 0};
+    double B[4][2] = {1.20, 0.50, 2.80, 0.40, 5, 1, 2, 1.50};
+    an = 3;
+    am = 4;
+    bn = 4;
+    bm = 2;
+//    //Таблица А
+//    cout << "Введите размерность таблицы A\n";
+//	cin >> an >> am;
+//	int *AN = new int(an);
+//	int *AM = new int(am);
+//	int A[*AN][*AM];
+//    cout << "Вводите таблицу A\n";
+//    for (int i = 0; i < an; i++)
+//    {
+//        for (int j = 0; j < am; j++) cin >> A[i][j];
+//    }
+//    cout << "--------------------\n";
+//    //Таблица В
+//    cout << "Введите размерность таблицы B\n";
+//    cin >> bn >> bm;
+//    if(am != bn)
+//    {
+//        cout << "Ошибка размерностей A n*m и B k*c т.е\nm != k\n";
+//        return 0;
+//    } 
+//	int *BN = new int(bn);
+//	int *BM = new int(bm);
+//	double B[*BN][*BM];
+//    cout << "Вводите таблицу B\n";
+//    for (int i = 0; i < bn; i++)
+//    {
+//        for (int j = 0; j < bm; j++) cin >> B[i][j];
+//    }
+//    cout << "--------------------\n";
+    //Таблица С
+	cn = an;
+    cm = bm;
+    int *CN = new int(cn);
+    int *CM = new int(cm);
+    double C[*CN][*CM];
+    cout << "Таблица С" << "\n";
+    cout << "Размерность " << cn << "x" << cm << "\n";
+    for(int i = 0; i < cn; i++)
+    {
+        for(int j = 0; j < cm; j++)
         {
-            for (int j = 0; j < am; j++) cin >> A[i][j];
+            for(int k = 0; k < am; k++)C[i][j]+=A[i][k]*B[k][j];
+            cout << C[i][j] << " ";
         }
-        cout << "--------------------\n";
-        //Таблица В
-        cout << "Введите размерность таблицы B\n";
-        cin >> bn >> bm;
-        if(am != bn)
-        {
-            cout << "Ошибка размерностей A n*m и B k*c т.е\nm != k\n";
-            return 0;
-        } 
-        int *BN = new int(bn);
-	    int *BM = new int(bm);
-	    double B[*BN][*BM];
-        cout << "Вводите таблицу B\n";
-        for (int i = 0; i < bn; i++)
-        {
-            for (int j = 0; j < bm; j++) cin >> B[i][j];
-        }
-        cout << "--------------------\n";
-        //Таблица С
-	    cn = an;
-        cm = bm;
-        int *CN = new int(cn);
-        int *CM = new int(cm);
-        double C[*CN][*CM];
-        cout << "Таблица С" << "\n";
-        cout << "Размерность " << cn << "x" << cm << "\n";
-        for(int i = 0; i < cn; i++)
-        {
-            for(int j = 0; j < cm; j++)
-            {
-                for(int k = 0; k < am; k++)C[i][j]+=A[i][k]*B[k][j];
-                cout << C[i][j] << " ";
-            }
-            cout << "\n";
-        }
-    
-        cout << "--------------------\n";
-    //}
-
+        cout << "\n";
+    }
+    cout << "--------------------\n";
     //cout << "--------------------\n";
     double cash[2][2] = {{C[0][0], C[0][0]}, {1, 1}};
     double comm[2][2] = {{C[0][1], C[0][1]}, {1, 1}};
