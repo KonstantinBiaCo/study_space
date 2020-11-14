@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-#include <algorithm>
 using namespace std;
 int in_mass(int *mas, int n, int num)
 {
