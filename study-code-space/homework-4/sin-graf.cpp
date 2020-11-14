@@ -8,12 +8,12 @@ void SIN(HDC dc)
 {
 	
 	double x,y;
-	int freq = 1;
-	int amp = 1;
+	double freq = 1;
+	double amp = 1;
 	for (x = 0; x < 60; x+=0.001)
 	{
 		y = sin(x*5);
-		SetPixel(dc, x*freq*160, y*amp*70 + 325, RGB(0,255,0));
+		SetPixel(dc, (160*x)/freq, y*amp*70 + 325, RGB(0,255,0));
 	}
 }
 LRESULT WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
@@ -34,6 +34,6 @@ int main()
     ShowWindow(hwnd, SW_SHOWNORMAL);
     SIN(dc);
     MSG msg;
-    while (GetMessage(&msg, NULL, 0, 0)) DispatchMessage(&msg);
+    while (GetMessage(&msg, NULL, 0, 0))DispatchMessage(&msg);
     return 0;
 }
