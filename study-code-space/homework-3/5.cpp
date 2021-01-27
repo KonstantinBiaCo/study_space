@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Сортировка букв
 #include <iostream>
 #include <cmath> 
 #include <cstdlib>

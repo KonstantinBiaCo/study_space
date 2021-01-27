@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Ссуда
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>

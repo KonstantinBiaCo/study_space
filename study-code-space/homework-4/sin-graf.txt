@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Синусойда
 #include <iostream>
 #include <windows.h>
 #include <cstdlib>
@@ -8,12 +10,12 @@ void SIN(HDC dc)
 {
 	
 	double x,y;
-	double freq = 1;
-	double amp = 1;
-	for (x = 0; x < 60; x+=0.001)
+	double freq = 1; //коэф. для частоты 
+	double amp = 1; // коэф. для амплитуды
+	for (x = -60; x < 60; x+=0.001)
 	{
-		y = sin(x*5);
-		SetPixel(dc, (160*x)/freq, y*amp*70 + 325, RGB(0,255,0));
+		y = sin(fabs(x)*5);
+		SetPixel(dc, (200*fabs(x))/freq, y*amp*70 + 325, RGB(0,255,0));
 	}
 }
 LRESULT WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
@@ -29,7 +31,7 @@ int main()
     w.lpfnWndProc = WndProc;
     RegisterClassA(&w);
     HWND hwnd;
-    hwnd = CreateWindow("win", "sin", WS_OVERLAPPEDWINDOW, 50, 50, 1200, 650, NULL, NULL, NULL, NULL);
+    hwnd = CreateWindow("win", "sin", WS_OVERLAPPEDWINDOW, 50, 50, 1600, 900, NULL, NULL, NULL, NULL);
     HDC dc = GetDC(hwnd);
     ShowWindow(hwnd, SW_SHOWNORMAL);
     SIN(dc);

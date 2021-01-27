@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Копирование файла
 #include <iostream>
 #include <fstream> 
 #include <cstdlib>

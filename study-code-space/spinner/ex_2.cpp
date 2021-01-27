@@ -3,17 +3,14 @@
 using namespace std;
 int main()
 {
-    long int max =2000000000;
-    int a = 0, b = 0, m;
+    setlocale(LC_ALL, "Russian");
+    int biggest = 2000000000;
+    unsigned int a = 0, b = 0, m;
     cin >> m;
-    // if (m > max)
-    // {
-    //     cout << "error\n";
-    //     return 0; 
-    // }
-    for(int i = 0; i < 700000000; i++)
+    if (m > biggest) return 0; 
+    for(int i = 0; i < biggest/3; i++)
     {
-        for(int j = 0; j < 500000000; j++)
+        for(int j = 0; j < biggest/4; j++)
         {
             if ((3*i + 4*j) == m)
             {
@@ -23,7 +20,7 @@ int main()
             }
             else if ((3*i + 4*j) > m) break;
         }
-        if ((3*a + 4*b) == m)break;
+        if ((3*a + 4*b) == m) break;
     }
     cout << a << "\n" << b << "\n";
     return 0;

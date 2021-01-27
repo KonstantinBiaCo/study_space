@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Автоматический распознаватель
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -35,8 +37,8 @@ int main()
             }
             if (counter == 4)
             {
-            error = 1;
             cout << "error\n";
+            return 0;
             break;
             } 
             sum +=conv(s[i]);
@@ -46,6 +48,6 @@ int main()
             sum-=conv(s[i]);
         }
     }
-    if (!error) cout << sum << "\n";
+    cout << sum << "\n";
     return 0;
 }

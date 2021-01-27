@@ -1,3 +1,5 @@
+//Соломатин ИКБО-11-20
+//Файл
 #include <cstdlib>
 #include <string>
 #include <iostream>
